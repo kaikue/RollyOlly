@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetButton("Jump")) //TODO: time window before touching ground
+		if (Input.GetButton("Jump")) //TODO: visual indicator for bouncy
 		{
 			if (canJump)
 			{
