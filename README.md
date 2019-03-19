@@ -22,6 +22,7 @@ Game for Jesse Schell's Game Design class.
 	- Bits
 		- Roll down and ramp off platform
 - Sound
+- Font
 
 ## Credits
 - Art by [Kenney](https://www.kenney.nl/)
