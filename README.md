@@ -21,10 +21,19 @@ Game for Jesse Schell's Game Design class.
 		- Cliffs
 		- Candy
 	- Mechanics
-		- Saws? Enemies? How to do danger in a way that is goofy and fun?
+		- Doors/keys
+			- colored
+		- Moving platforms
+			- conveyor
+			- spin
+			- pivot on hinge
+			- side to side
+			- catapult
+		- Water
 		- Boost pads
 		- Antigravity columns
 		- Pipes that zip you around and shoot you out
+		- Saws? Enemies? How to do danger in a way that is goofy and fun?
 	- Bits
 		- Roll down and ramp off platform
 - Sound
