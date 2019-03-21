@@ -23,7 +23,9 @@ Game for Jesse Schell's Game Design class.
 			- Slippery, water, smashing
 		- Mushroom jungle
 		- Cliffs
+			- Wind- horizontal boosts, antigravity columns/areas, high gravity areas
 		- Candy
+			- Sticky- roll along walls/ceiling until you bounce off
 	- Mechanics
 		- Doors/keys
 			- colored
