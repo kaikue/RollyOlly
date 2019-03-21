@@ -4,6 +4,7 @@ Game for Jesse Schell's Game Design class.
 
 ## TODO
 - Character
+	- Conserve momentum (force added = max of jump speed and incoming velocity)
 	- Boost? (propel in direction of rolling)
 	- Ramp off upward slope?
 	- Visuals
@@ -11,12 +12,15 @@ Game for Jesse Schell's Game Design class.
 		- Green outline or something when in bouncing state
 - Stars
 	- 3 per level
-	- Unlock cosmetic bonuses?
+	- Unlock cosmetic bonuses? or bonus levels?
 - Levels
 	- Worlds
 		- Dirt/cave
+			- Movement, doors
 		- Industrial
+			- Moving platforms
 		- Ice
+			- Slippery, water, smashing
 		- Mushroom jungle
 		- Cliffs
 		- Candy
@@ -30,6 +34,7 @@ Game for Jesse Schell's Game Design class.
 			- side to side
 			- catapult
 		- Water
+		- Ice
 		- Boost pads
 		- Antigravity columns
 		- Pipes that zip you around and shoot you out
@@ -41,3 +46,4 @@ Game for Jesse Schell's Game Design class.
 
 ## Credits
 - Art by [Kenney](https://www.kenney.nl/)
+- Font: [Sniglet](https://www.fontsquirrel.com/fonts/sniglet)

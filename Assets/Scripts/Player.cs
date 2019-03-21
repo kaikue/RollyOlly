@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
 	private const float ROLL_SPEED = 10f;
-	private const float JUMP_SPEED = 8f;
+	private const float JUMP_SPEED = 15f;
 
 	private const float JUMP_GRACE_TIME = 0.1f;
 
@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		collisions.Add(collision.gameObject);
+		canJump = true;
 		OnCollide(collision);
 	}
 
@@ -60,8 +62,6 @@ public class Player : MonoBehaviour
 	private void OnCollide(Collision2D collision)
 	{
 		lastGroundAngle = collision.GetContact(0).normal;
-		collisions.Add(collision.gameObject);
-		canJump = true;
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)
