@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
 	private const float ROLL_SPEED = 10f;
-	private const float JUMP_SPEED = 15f;
+	private const float JUMP_SPEED = 10f;
 
 	private const float JUMP_GRACE_TIME = 0.1f;
 

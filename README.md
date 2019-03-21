@@ -42,6 +42,7 @@ Game for Jesse Schell's Game Design class.
 	- Bits
 		- Roll down and ramp off platform
 - Sound
+	- vary pitch on repetitive sounds
 - Font
 
 ## Credits
