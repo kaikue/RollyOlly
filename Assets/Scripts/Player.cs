@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -78,6 +79,15 @@ public class Player : MonoBehaviour
 		if (collisions.Count == 0)
 		{
 			canJump = false;
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.CompareTag("Flag"))
+		{
+			//TODO finish level menu
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}
 }
