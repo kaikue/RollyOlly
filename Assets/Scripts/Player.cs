@@ -89,5 +89,11 @@ public class Player : MonoBehaviour
 			//TODO finish level menu
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
+
+		else if (collider.gameObject.CompareTag("Star"))
+		{
+			//TODO collect star
+			Destroy(collider.gameObject);
+		}
 	}
 }
