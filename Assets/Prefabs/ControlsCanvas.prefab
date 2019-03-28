@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8814869443175292921}
   - component: {fileID: 8814869443175292922}
   - component: {fileID: 8814869443175292923}
+  - component: {fileID: 1474319082}
   m_Layer: 0
   m_Name: ControlsCanvas
   m_TagString: Untagged
@@ -76,6 +77,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1474319082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8814869443175292924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &8814869443720833372
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,9 +164,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Roll: Joystick Left/Right
+  m_text: 'Roll: Left/Right Arrows
 
-    Bounce: Hold A'
+    Bounce: Hold Space'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85afe20931651844f9a30c7392eacd90, type: 2}
   m_sharedMaterial: {fileID: 21534357595322742, guid: 85afe20931651844f9a30c7392eacd90,
@@ -190,7 +213,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 26
+  m_firstOverflowCharacterIndex: 24
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -213,7 +236,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -335.526, w: -38.33557}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 40
+    characterCount: 42
     spriteCount: 0
     spaceCount: 5
     wordCount: 7
