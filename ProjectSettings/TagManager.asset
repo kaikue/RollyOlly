@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flag
   - Star
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1360990869
+    locked: 0
+  - name: Level
+    uniqueID: 3387456053
+    locked: 0
+  - name: LevelObjects
+    uniqueID: 3569889801
+    locked: 0
+  - name: Player
+    uniqueID: 561380195
+    locked: 0
+  - name: UI
+    uniqueID: 674883009
     locked: 0

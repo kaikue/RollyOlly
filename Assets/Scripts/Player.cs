@@ -16,10 +16,13 @@ public class Player : MonoBehaviour
 	private HashSet<GameObject> collisions;
 	private bool canJump = false;
 
+	private HashSet<GameObject> keys;
+
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		collisions = new HashSet<GameObject>();
+		keys = new HashSet<GameObject>();
 	}
 
 	private void Update()
@@ -50,6 +53,12 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		Door door = collision.gameObject.GetComponent<Door>();
+		if (door != null && keys.Contains(door.key))
+		{
+			door.Open();
+		}
+
 		collisions.Add(collision.gameObject);
 		canJump = true;
 		OnCollide(collision);
@@ -89,10 +98,14 @@ public class Player : MonoBehaviour
 			//TODO finish level menu
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
-
 		else if (collider.gameObject.CompareTag("Star"))
 		{
 			//TODO collect star
+			Destroy(collider.gameObject);
+		}
+		else if (collider.gameObject.CompareTag("Key"))
+		{
+			keys.Add(collider.gameObject);
 			Destroy(collider.gameObject);
 		}
 	}
