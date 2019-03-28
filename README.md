@@ -4,6 +4,7 @@ Game for Jesse Schell's Game Design class.
 
 ## TODO
 - Character
+	- Fix occasional double bounce
 	- Conserve momentum (force added = max of jump speed and incoming velocity)
 	- Boost? (propel in direction of rolling)
 	- Ramp off upward slope?
