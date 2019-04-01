@@ -60,6 +60,8 @@ Game for Jesse Schell's Game Design class.
 - Sound
 	- vary pitch on repetitive sounds
 	- UI sounds
+- Save level progress & stars
+	- start menu continue & new game
 - Menus
 	- Make text black
 	- Don't bounce when unpausing??
