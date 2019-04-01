@@ -7,6 +7,7 @@ TagManager:
   - Flag
   - Star
   - Key
+  - GameManager
   layers:
   - Default
   - TransparentFX

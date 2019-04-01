@@ -15,6 +15,18 @@ Game for Jesse Schell's Game Design class.
 	- 3 per level
 	- Unlock cosmetic bonuses? or bonus levels?
 - Levels
+	- Teach
+		- Rolling
+		- Bouncing off ground
+		- Need momentum to bounce over something
+		- Bounce goes perpendicular to ground
+		- Need key to open door
+		- Stars are extra bonus
+		- Bounce must be released in midair (hit wall to stop?)
+		- Bounce must be pressed in midair (roll off ledge)
+		- Some stars can become unreachable (you have to restart)
+		- Need extra momentum to do a bounce
+		- Need multiple keys for multiple doors
 	- Worlds
 		- Dirt/cave
 			- Movement, doors
@@ -23,6 +35,7 @@ Game for Jesse Schell's Game Design class.
 		- Ice
 			- Slippery, water, smashing
 		- Mushroom jungle
+			- gravity?
 		- Cliffs
 			- Wind- horizontal boosts, antigravity columns/areas, high gravity areas
 		- Candy
@@ -46,8 +59,25 @@ Game for Jesse Schell's Game Design class.
 		- Roll down and ramp off platform
 - Sound
 	- vary pitch on repetitive sounds
-- Font
+	- UI sounds
+- Menus
+	- Make text black
+	- Don't bounce when unpausing??
+	- Level complete menu
+		- Stars collected
+		- Individual level time (if show timer is on)
+		- Next level
+		- Restart level
+		- Quit to title
+	- Restart level button
+	- Options
+		- Select first option when opening menu
+		- Set timer selected checkbox to enabled if timer is enabled
+		- music volume
+		- overall volume
 
 ## Credits
 - Art by [Kenney](https://www.kenney.nl/)
-- Font: [Sniglet](https://www.fontsquirrel.com/fonts/sniglet)
+- Fonts:
+	- [Sniglet](https://www.fontsquirrel.com/fonts/sniglet)
+	- [Fredoka One](https://fonts.google.com/specimen/Fredoka+One)
