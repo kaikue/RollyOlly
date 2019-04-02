@@ -1,6 +1,6 @@
-# RollyOlly
+# Rolly Olly
 
-Game for Jesse Schell's Game Design class.
+Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 
 ## TODO
 - Character
@@ -15,9 +15,10 @@ Game for Jesse Schell's Game Design class.
 	- 3 per level
 	- Unlock cosmetic bonuses? or bonus levels?
 - Levels
-	- Teach
+	- Cave
 		- Rolling
 		- Bouncing off ground
+		- Roll up hill
 		- Need momentum to bounce over something
 		- Bounce goes perpendicular to ground
 		- Need key to open door
@@ -27,19 +28,39 @@ Game for Jesse Schell's Game Design class.
 		- Some stars can become unreachable (you have to restart)
 		- Need extra momentum to do a bounce
 		- Need multiple keys for multiple doors
+		- Keys only open doors of same color
+	- Industrial
+		- Platforms can move
+		- You keep momentum when bouncing off moving platform
+		- Platforms can spin
+		- Platforms can swing freely on pivot
+		- Conveyor belts move you
+		- Conveyor belts can give you extra speed
+	- Jungle
+		- Mud slows you down
+		- You can stick to mud walls
+		- You can roll over mud corners
+		- You can hang on mud ceilings
+		- Mushrooms are bouncy
+	- Cliffs
+		- Horizontal wind can speed you up
+		- Horizontal wind can slow you down
+		- Vertical wind can make you bounce higher
+		- Vertical wind can make you bounce lower
+		- Vertical wind can change gravity completely
+		- Horizontal wind can change gravity completely
 	- Worlds
 		- Dirt/cave
 			- Movement, doors
 		- Industrial
 			- Moving platforms
-		- Ice
+		- Ice?
 			- Slippery, water, smashing
 		- Mushroom jungle
-			- gravity?
+			- Sticky mud- roll along walls/ceiling until you bounce off
+			- Bouncy mushrooms- bounce you off at high speed
 		- Cliffs
 			- Wind- horizontal boosts, antigravity columns/areas, high gravity areas
-		- Candy
-			- Sticky- roll along walls/ceiling until you bounce off
 	- Mechanics
 		- Doors/keys
 			- colored
@@ -57,6 +78,13 @@ Game for Jesse Schell's Game Design class.
 		- Saws? Enemies? How to do danger in a way that is goofy and fun?
 	- Bits
 		- Roll down and ramp off platform
+	- Polish
+		- Particles
+		- Passive movement
+			- Swaying grass
+			- Spinning gears
+			- Floaty bugs or little creatures (esp. in jungle)
+			- Gusts of wind
 - Sound
 	- vary pitch on repetitive sounds
 	- UI sounds
