@@ -42,6 +42,7 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 		- You can roll over mud corners
 		- You can hang on mud ceilings
 		- Mushrooms are bouncy
+		- Touch fuzzy get dizzy
 	- Cliffs
 		- Horizontal wind can speed you up
 		- Horizontal wind can slow you down

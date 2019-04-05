@@ -11,7 +11,11 @@ public class Player : MonoBehaviour
 
 	private const float JUMP_GRACE_TIME = 0.1f;
 
+	public Transform rotationTransform;
+	public Transform spriteTransform;
+
 	private Rigidbody2D rb;
+	private Animator animator;
 	private Vector2 lastGroundAngle;
 	private HashSet<GameObject> collisions;
 	private bool canJump = false;
@@ -21,12 +25,17 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 		collisions = new HashSet<GameObject>();
 		keys = new HashSet<GameObject>();
 	}
 
 	private void Update()
 	{
+		Quaternion spriteRot = spriteTransform.rotation;
+		rotationTransform.rotation = Quaternion.FromToRotation(Vector3.up, lastGroundAngle);
+		spriteTransform.rotation = spriteRot;
+
 		if (Input.GetButton("Jump")) //TODO: visual indicator for bouncy
 		{
 			if (canJump)
@@ -40,6 +49,7 @@ public class Player : MonoBehaviour
 	{
 		rb.AddForce(lastGroundAngle.normalized * JUMP_SPEED, ForceMode2D.Impulse);
 		canJump = false;
+		animator.SetTrigger("Bounce");
 	}
 
 	private void FixedUpdate()
