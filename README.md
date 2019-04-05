@@ -88,6 +88,9 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 			- Spinning gears
 			- Floaty bugs or little creatures (esp. in jungle)
 			- Gusts of wind
+		- Levels
+			- No grass
+			- Round off corners
 - Sound
 	- vary pitch on repetitive sounds
 	- UI sounds
