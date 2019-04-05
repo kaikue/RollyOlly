@@ -9,8 +9,8 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 	- Boost? (propel in direction of rolling)
 	- Ramp off upward slope?
 	- Visuals
-		- Squash/stretch when bouncing
-		- Green outline or something when in bouncing state
+		- Animation for hitting ground non-bouncy
+		- Align bounce animation to ground
 - Stars
 	- 3 per level
 	- Unlock cosmetic bonuses? or bonus levels?
@@ -81,6 +81,8 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 		- Roll down and ramp off platform
 	- Polish
 		- Particles
+			- bouncing (from rotator, tangent to ground)
+			- rolling
 		- Passive movement
 			- Swaying grass
 			- Spinning gears
@@ -89,6 +91,7 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 - Sound
 	- vary pitch on repetitive sounds
 	- UI sounds
+	- rolling sound
 - Save level progress & stars
 	- start menu continue & new game
 - Menus

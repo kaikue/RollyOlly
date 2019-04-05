@@ -11,14 +11,20 @@ public class Player : MonoBehaviour
 
 	private const float JUMP_GRACE_TIME = 0.1f;
 
+	private const float PITCH_ADJUST = 0.2f;
+
 	public Transform rotationTransform;
 	public Transform spriteTransform;
+	public Sprite bouncySprite;
 
 	private Rigidbody2D rb;
 	private Animator animator;
+	private SpriteRenderer sr;
+	private AudioSource bounceSound;
 	private Vector2 lastGroundAngle;
 	private HashSet<GameObject> collisions;
 	private bool canJump = false;
+	private Sprite regularSprite;
 
 	private HashSet<GameObject> keys;
 
@@ -26,8 +32,11 @@ public class Player : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		bounceSound = GetComponent<AudioSource>();
 		collisions = new HashSet<GameObject>();
 		keys = new HashSet<GameObject>();
+		sr = spriteTransform.GetComponent<SpriteRenderer>();
+		regularSprite = sr.sprite;
 	}
 
 	private void Update()
@@ -36,12 +45,17 @@ public class Player : MonoBehaviour
 		rotationTransform.rotation = Quaternion.FromToRotation(Vector3.up, lastGroundAngle);
 		spriteTransform.rotation = spriteRot;
 
-		if (Input.GetButton("Jump")) //TODO: visual indicator for bouncy
+		if (Input.GetButton("Jump"))
 		{
+			sr.sprite = bouncySprite;
 			if (canJump)
 			{
 				Jump();
 			}
+		}
+		else
+		{
+			sr.sprite = regularSprite;
 		}
 	}
 
@@ -50,6 +64,8 @@ public class Player : MonoBehaviour
 		rb.AddForce(lastGroundAngle.normalized * JUMP_SPEED, ForceMode2D.Impulse);
 		canJump = false;
 		animator.SetTrigger("Bounce");
+		bounceSound.pitch = Random.Range(1 - PITCH_ADJUST, 1 + PITCH_ADJUST);
+		bounceSound.Play();
 	}
 
 	private void FixedUpdate()
