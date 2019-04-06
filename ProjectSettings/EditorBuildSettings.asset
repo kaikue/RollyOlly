@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Cave2.unity
     guid: 9f56948a4d09c704e90024e9943f6320
   - enabled: 1
-    path: Assets/Scenes/Cave3.unity
+    path: Assets/Scenes/Slant.unity
     guid: 8dae0eda57898284dbcf1825dee18e1f
   - enabled: 1
     path: Assets/Scenes/Sandbox.unity

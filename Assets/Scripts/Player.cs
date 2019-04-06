@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
 {
 
 	private const float ROLL_SPEED = 10f;
-	private const float JUMP_SPEED = 10f;
+	private const float BOUNCE_SPEED = 10f;
 
-	private const float JUMP_GRACE_TIME = 0.1f;
+	private const float BOUNCE_GRACE_TIME = 0.1f;
 
 	private const float PITCH_ADJUST = 0.2f;
 
@@ -22,8 +22,9 @@ public class Player : MonoBehaviour
 	private SpriteRenderer sr;
 	private AudioSource bounceSound;
 	private Vector2 lastGroundAngle;
+	private Vector2 lastVel;
 	private HashSet<GameObject> collisions;
-	private bool canJump = false;
+	private bool canBounce = false;
 	private Sprite regularSprite;
 
 	private HashSet<GameObject> keys;
@@ -48,9 +49,9 @@ public class Player : MonoBehaviour
 		if (Input.GetButton("Jump"))
 		{
 			sr.sprite = bouncySprite;
-			if (canJump)
+			if (canBounce)
 			{
-				Jump();
+				Bounce();
 			}
 		}
 		else
@@ -59,10 +60,14 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	private void Jump()
+	private void Bounce()
 	{
-		rb.AddForce(lastGroundAngle.normalized * JUMP_SPEED, ForceMode2D.Impulse);
-		canJump = false;
+		float incomingForce = Vector2.Dot(lastVel, lastGroundAngle.normalized);
+		float defaultForce = BOUNCE_SPEED;
+		float force = Mathf.Max(incomingForce, defaultForce);
+		//print("incoming: " + incomingForce + ", default: " + defaultForce + ", force: " + force + " // velocity: " + lastVel);
+		rb.AddForce(lastGroundAngle.normalized * force, ForceMode2D.Impulse);
+		canBounce = false;
 		animator.SetTrigger("Bounce");
 		bounceSound.pitch = Random.Range(1 - PITCH_ADJUST, 1 + PITCH_ADJUST);
 		bounceSound.Play();
@@ -75,6 +80,8 @@ public class Player : MonoBehaviour
 		{
 			rb.AddTorque(-rotation * ROLL_SPEED);
 		}
+
+		//lastVel = rb.velocity;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -84,9 +91,10 @@ public class Player : MonoBehaviour
 		{
 			door.Open();
 		}
-
+		
 		collisions.Add(collision.gameObject);
-		canJump = true;
+		canBounce = true;
+		lastVel = collision.relativeVelocity;
 		OnCollide(collision);
 	}
 
@@ -105,7 +113,7 @@ public class Player : MonoBehaviour
 		collisions.Remove(collision.gameObject);
 		if (collisions.Count == 0)
 		{
-			Invoke("ClearJump", JUMP_GRACE_TIME);
+			Invoke("ClearJump", BOUNCE_GRACE_TIME);
 		}
 	}
 
@@ -113,7 +121,7 @@ public class Player : MonoBehaviour
 	{
 		if (collisions.Count == 0)
 		{
-			canJump = false;
+			canBounce = false;
 		}
 	}
 

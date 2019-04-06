@@ -23,6 +23,7 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 		- Bounce goes perpendicular to ground
 		- Need key to open door
 		- Stars are extra bonus
+		- Bounce off ceiling
 		- Bounce must be released in midair (hit wall to stop?)
 		- Bounce must be pressed in midair (roll off ledge)
 		- Some stars can become unreachable (you have to restart)
