@@ -46,22 +46,12 @@ public class Player : MonoBehaviour
 		rotationTransform.rotation = Quaternion.FromToRotation(Vector3.up, lastGroundAngle);
 		spriteTransform.rotation = spriteRot;
 
-		if (Input.GetButton("Jump"))
-		{
-			sr.sprite = bouncySprite;
-			if (canBounce)
-			{
-				Bounce();
-			}
-		}
-		else
-		{
-			sr.sprite = regularSprite;
-		}
+		sr.sprite = Input.GetButton("Jump") ? bouncySprite : regularSprite;
 	}
 
 	private void Bounce()
 	{
+		print("bounce");
 		float incomingForce = Vector2.Dot(lastVel, lastGroundAngle.normalized);
 		float defaultForce = BOUNCE_SPEED;
 		float force = Mathf.Max(incomingForce, defaultForce);
@@ -81,25 +71,31 @@ public class Player : MonoBehaviour
 			rb.AddTorque(-rotation * ROLL_SPEED);
 		}
 
+		if (Input.GetButton("Jump") && canBounce)
+		{
+			Bounce();
+		}
 		//lastVel = rb.velocity;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		print("enter");
 		Door door = collision.gameObject.GetComponent<Door>();
 		if (door != null && keys.Contains(door.key))
 		{
 			door.Open();
 		}
 		
+		lastVel = collision.relativeVelocity;
 		collisions.Add(collision.gameObject);
 		canBounce = true;
-		lastVel = collision.relativeVelocity;
 		OnCollide(collision);
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)
 	{
+		print("stay");
 		OnCollide(collision);
 	}
 
