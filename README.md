@@ -116,6 +116,8 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 
 ## Credits
 - Art by [Kenney](https://www.kenney.nl/)
+- Music:
+	- Bouncy Hamster Dancing by cynicmusic- http://cynicmusic.com http://pixelsphere.org (https://opengameart.org/content/bouncy-hamster-dancing-menu-music)
 - Fonts:
 	- [Sniglet](https://www.fontsquirrel.com/fonts/sniglet)
 	- [Fredoka One](https://fonts.google.com/specimen/Fredoka+One)
