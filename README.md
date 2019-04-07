@@ -81,6 +81,8 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 	- Bits
 		- Roll down and ramp off platform
 	- Polish
+		- Backgrounds
+			- open on cave 2 + cliffs, closed on cave + industrial
 		- Particles
 			- bouncing (from rotator, tangent to ground)
 			- rolling
