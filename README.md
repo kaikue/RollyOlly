@@ -3,6 +3,13 @@
 Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 
 ## TODO
+- Important stuff
+	- Music- store in LevelInfo, play in GameManager if different
+	- End screen- show # stars collected / total
+	- More cave & factory
+	- Particles on star collect
+	- Sounds
+	- Test timer & full game run
 - Character
 	- Fix occasional double bounce
 	- Conserve momentum (force added = max of jump speed and incoming velocity)

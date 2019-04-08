@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
 	private bool timerEnabled = false;
 	private float gameTime;
-
+	private HashSet<GameObject> starsCollected;
 
 	private void Awake()
 	{
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
 		DontDestroyOnLoad(gameObject);
 		gameTime = 0;
+		starsCollected = new HashSet<GameObject>();
 	}
 
 	private void Start()
@@ -80,5 +81,10 @@ public class GameManager : MonoBehaviour
 	public bool IsTimerEnabled()
 	{
 		return timerEnabled;
+	}
+
+	public void CollectStar(GameObject star)
+	{
+		starsCollected.Add(star);
 	}
 }

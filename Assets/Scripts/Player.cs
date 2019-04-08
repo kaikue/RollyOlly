@@ -54,7 +54,8 @@ public class Player : MonoBehaviour
 		print("bounce");
 		float incomingForce = Vector2.Dot(lastVel, lastGroundAngle.normalized);
 		float defaultForce = BOUNCE_SPEED;
-		float force = Mathf.Max(incomingForce, defaultForce);
+		//float force = Mathf.Max(incomingForce, defaultForce);
+		float force = defaultForce;
 		//print("incoming: " + incomingForce + ", default: " + defaultForce + ", force: " + force + " // velocity: " + lastVel);
 		rb.AddForce(lastGroundAngle.normalized * force, ForceMode2D.Impulse);
 		canBounce = false;
@@ -131,6 +132,8 @@ public class Player : MonoBehaviour
 		else if (collider.gameObject.CompareTag("Star"))
 		{
 			//TODO collect star
+			GameManager gm = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+			gm.CollectStar(collider.gameObject);
 			Destroy(collider.gameObject);
 		}
 		else if (collider.gameObject.CompareTag("Key"))
