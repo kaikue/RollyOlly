@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
 	private void Bounce()
 	{
-		print("bounce");
+		//print("bounce");
 		float incomingForce = Vector2.Dot(lastVel, lastGroundAngle.normalized);
 		float defaultForce = BOUNCE_SPEED;
 		//float force = Mathf.Max(incomingForce, defaultForce);
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		print("enter");
+		//print("enter");
 		Door door = collision.gameObject.GetComponent<Door>();
 		if (door != null && keys.Contains(door.key))
 		{
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionStay2D(Collision2D collision)
 	{
-		print("stay");
+		//print("stay");
 		OnCollide(collision);
 	}
 

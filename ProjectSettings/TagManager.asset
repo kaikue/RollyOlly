@@ -8,6 +8,8 @@ TagManager:
   - Star
   - Key
   - GameManager
+  - LevelInfo
+  - EndInfo
   layers:
   - Default
   - TransparentFX
