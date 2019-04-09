@@ -48,6 +48,9 @@ MonoBehaviour:
   pauseMenuPrefab: {fileID: 3572706135556730623, guid: 815a72893a4035a4798e32de335fd1d3,
     type: 3}
   timerText: {fileID: 6225186465059839060}
+  completeClip: {fileID: 8300000, guid: d33a57d88c1fc86438c48747d966b100, type: 3}
+  levelCompletePrefab: {fileID: 6566662254747267634, guid: 0407f3658b3a4ea42bfa64586e4b11da,
+    type: 3}
 --- !u!82 &6572043014199013928
 AudioSource:
   m_ObjectHideFlags: 0

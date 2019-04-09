@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
 	public GameObject pauseMenuPrefab;
 	public TMPro.TextMeshProUGUI timerText;
+	public AudioClip completeClip;
+
+	public GameObject levelCompletePrefab;
 
 	private bool paused = false;
 	private GameObject pauseMenu;
@@ -47,15 +50,11 @@ public class GameManager : MonoBehaviour
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
+		CheckWin();
 		RefreshTimer();
 		PlayMusic();
-		CheckWin();
 	}
-
-	private void Start()
-	{
-	}
-
+	
 	private void RefreshTimer()
 	{
 		timerText.enabled = timerEnabled;
@@ -68,7 +67,6 @@ public class GameManager : MonoBehaviour
 		{
 			LevelInfo li = liObj.GetComponent<LevelInfo>();
 			AudioClip newMus = li.backgroundMusic;
-			print("new mus: " + newMus.name);
 			if (newMus != audioSrc.clip)
 			{
 				audioSrc.clip = newMus;
@@ -84,6 +82,7 @@ public class GameManager : MonoBehaviour
 		{
 			EndInfo endInfo = endObj.GetComponent<EndInfo>();
 			endInfo.SetInfo(GetTimeString(), starsCollected.Count);
+			timerEnabled = false;
 		}
 	}
 
@@ -139,5 +138,11 @@ public class GameManager : MonoBehaviour
 	public void CollectStar(GameObject star)
 	{
 		starsCollected.Add(star);
+	}
+
+	public void LevelComplete()
+	{
+		Instantiate(levelCompletePrefab);
+		audioSrc.PlayOneShot(completeClip);
 	}
 }

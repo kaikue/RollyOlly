@@ -17,10 +17,16 @@ public class Player : MonoBehaviour
 	public Transform spriteTransform;
 	public Sprite bouncySprite;
 
+	public AudioClip bounceClip;
+	public AudioClip collectClip;
+	public AudioClip unlockClip;
+
+	public GameObject particlesPrefab;
+
 	private Rigidbody2D rb;
 	private Animator animator;
 	private SpriteRenderer sr;
-	private AudioSource bounceSound;
+	private AudioSource audioSrc;
 	private Vector2 lastGroundAngle;
 	private Vector2 lastVel;
 	private HashSet<GameObject> collisions;
@@ -33,7 +39,7 @@ public class Player : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
-		bounceSound = GetComponent<AudioSource>();
+		audioSrc = GetComponent<AudioSource>();
 		collisions = new HashSet<GameObject>();
 		keys = new HashSet<GameObject>();
 		sr = spriteTransform.GetComponent<SpriteRenderer>();
@@ -60,8 +66,8 @@ public class Player : MonoBehaviour
 		rb.AddForce(lastGroundAngle.normalized * force, ForceMode2D.Impulse);
 		canBounce = false;
 		animator.SetTrigger("Bounce");
-		bounceSound.pitch = Random.Range(1 - PITCH_ADJUST, 1 + PITCH_ADJUST);
-		bounceSound.Play();
+		audioSrc.pitch = Random.Range(1 - PITCH_ADJUST, 1 + PITCH_ADJUST);
+		audioSrc.PlayOneShot(bounceClip);
 	}
 
 	private void FixedUpdate()
@@ -85,7 +91,10 @@ public class Player : MonoBehaviour
 		Door door = collision.gameObject.GetComponent<Door>();
 		if (door != null && keys.Contains(door.key))
 		{
+			audioSrc.pitch = 1;
+			audioSrc.PlayOneShot(unlockClip);
 			door.Open();
+			Instantiate(particlesPrefab, collision.transform.position, Quaternion.identity);
 		}
 		
 		lastVel = collision.relativeVelocity;
@@ -127,17 +136,24 @@ public class Player : MonoBehaviour
 		if (collider.gameObject.CompareTag("Flag"))
 		{
 			//TODO finish level menu
+			GameManager gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+			gameManager.LevelComplete();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else if (collider.gameObject.CompareTag("Star"))
 		{
-			//TODO collect star
+			Instantiate(particlesPrefab, collider.transform.position, Quaternion.identity);
+			audioSrc.pitch = 1;
+			audioSrc.PlayOneShot(collectClip);
 			GameManager gm = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 			gm.CollectStar(collider.gameObject);
 			Destroy(collider.gameObject);
 		}
 		else if (collider.gameObject.CompareTag("Key"))
 		{
+			Instantiate(particlesPrefab, collider.transform.position, Quaternion.identity);
+			audioSrc.pitch = 1;
+			audioSrc.PlayOneShot(collectClip);
 			keys.Add(collider.gameObject);
 			Destroy(collider.gameObject);
 		}

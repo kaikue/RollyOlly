@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cave3.unity
     guid: 9f56948a4d09c704e90024e9943f6320
   - enabled: 1
+    path: Assets/Scenes/Factory1.unity
+    guid: c015f692962e76e44800cd48128f840b
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 4db8d4d5b963dff40916bf8099e69566
   m_configObjects: {}

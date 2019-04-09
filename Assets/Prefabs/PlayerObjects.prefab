@@ -384,6 +384,11 @@ MonoBehaviour:
   rotationTransform: {fileID: 3282854668296334461}
   spriteTransform: {fileID: 8528115715509691393}
   bouncySprite: {fileID: 21300000, guid: 6e4af095ab61d734f8cefa42aab5b5db, type: 3}
+  bounceClip: {fileID: 8300000, guid: 5146d2486afcc52479dcced36f510e09, type: 3}
+  collectClip: {fileID: 8300000, guid: 7a7fd6723b5c5cd4b82be62c368f07ac, type: 3}
+  unlockClip: {fileID: 8300000, guid: c56709ddf618ab14499f0a5b2f4aa3c4, type: 3}
+  particlesPrefab: {fileID: 7717153009653280541, guid: dca45aac9be219a46b68c41a4fb3772f,
+    type: 3}
 --- !u!95 &7583262588612619616
 Animator:
   serializedVersion: 3
@@ -413,7 +418,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5146d2486afcc52479dcced36f510e09, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
