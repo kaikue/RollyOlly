@@ -25,7 +25,7 @@ EditorBuildSettings:
     guid: 4045f2d7b49e7e8438074781e3d6f1af
   - enabled: 1
     path: Assets/Scenes/Factory3.unity
-    guid: e004961251121874ba29429d960a3cbe
+    guid: 969bf2e643ba41c4ab0831efdaa96a93
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 4db8d4d5b963dff40916bf8099e69566
