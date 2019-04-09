@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class Player : MonoBehaviour
 	private const float BOUNCE_SPEED = 10f;
 
 	private const float BOUNCE_GRACE_TIME = 0.1f;
+	private const float BOUNCE_COOLDOWN_TIME = 0.03f;
 
 	private const float PITCH_ADJUST = 0.2f;
 
@@ -18,19 +18,24 @@ public class Player : MonoBehaviour
 	public Sprite bouncySprite;
 
 	public AudioClip bounceClip;
+	public AudioClip landClip;
 	public AudioClip collectClip;
 	public AudioClip unlockClip;
 
-	public GameObject particlesPrefab;
+	public GameObject collectParticlesPrefab;
+	public GameObject moveParticlesPrefab;
+
+	public AudioSource audioSrcRandom;
+	public AudioSource audioSrcFixed;
 
 	private Rigidbody2D rb;
 	private Animator animator;
 	private SpriteRenderer sr;
-	private AudioSource audioSrc;
 	private Vector2 lastGroundAngle;
 	private Vector2 lastVel;
 	private HashSet<GameObject> collisions;
 	private bool canBounce = false;
+	private bool bounceCooldown = false;
 	private Sprite regularSprite;
 
 	private HashSet<GameObject> keys;
@@ -39,7 +44,6 @@ public class Player : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
-		audioSrc = GetComponent<AudioSource>();
 		collisions = new HashSet<GameObject>();
 		keys = new HashSet<GameObject>();
 		sr = spriteTransform.GetComponent<SpriteRenderer>();
@@ -65,9 +69,27 @@ public class Player : MonoBehaviour
 		//print("incoming: " + incomingForce + ", default: " + defaultForce + ", force: " + force + " // velocity: " + lastVel);
 		rb.AddForce(lastGroundAngle.normalized * force, ForceMode2D.Impulse);
 		canBounce = false;
+		bounceCooldown = true;
+		StartCoroutine(BounceCooldown());
 		animator.SetTrigger("Bounce");
-		audioSrc.pitch = Random.Range(1 - PITCH_ADJUST, 1 + PITCH_ADJUST);
-		audioSrc.PlayOneShot(bounceClip);
+		PlaySoundRandomized(bounceClip);
+	}
+
+	private IEnumerator BounceCooldown()
+	{
+		yield return new WaitForSeconds(BOUNCE_COOLDOWN_TIME);
+		bounceCooldown = false;
+	}
+
+	private void PlaySoundRandomized(AudioClip audioClip)
+	{
+		audioSrcRandom.pitch = Random.Range(1 - PITCH_ADJUST, 1 + PITCH_ADJUST);
+		audioSrcRandom.PlayOneShot(audioClip);
+	}
+
+	private void PlaySoundFixed(AudioClip audioClip)
+	{
+		audioSrcFixed.PlayOneShot(audioClip);
 	}
 
 	private void FixedUpdate()
@@ -78,7 +100,7 @@ public class Player : MonoBehaviour
 			rb.AddTorque(-rotation * ROLL_SPEED);
 		}
 
-		if (Input.GetButton("Jump") && canBounce)
+		if (Input.GetButton("Jump") && canBounce && !bounceCooldown)
 		{
 			Bounce();
 		}
@@ -91,12 +113,14 @@ public class Player : MonoBehaviour
 		Door door = collision.gameObject.GetComponent<Door>();
 		if (door != null && keys.Contains(door.key))
 		{
-			audioSrc.pitch = 1;
-			audioSrc.PlayOneShot(unlockClip);
+			PlaySoundFixed(unlockClip);
 			door.Open();
-			Instantiate(particlesPrefab, collision.transform.position, Quaternion.identity);
+			SpawnParticles(collectParticlesPrefab, collision.transform.position);
 		}
-		
+
+		SpawnParticles(moveParticlesPrefab, collision.GetContact(0).point);
+
+		PlaySoundRandomized(landClip);
 		lastVel = collision.relativeVelocity;
 		collisions.Add(collision.gameObject);
 		canBounce = true;
@@ -138,24 +162,27 @@ public class Player : MonoBehaviour
 			//TODO finish level menu
 			GameManager gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 			gameManager.LevelComplete();
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else if (collider.gameObject.CompareTag("Star"))
 		{
-			Instantiate(particlesPrefab, collider.transform.position, Quaternion.identity);
-			audioSrc.pitch = 1;
-			audioSrc.PlayOneShot(collectClip);
+			SpawnParticles(collectParticlesPrefab, collider.transform.position);
+			PlaySoundFixed(collectClip);
 			GameManager gm = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 			gm.CollectStar(collider.gameObject);
 			Destroy(collider.gameObject);
 		}
 		else if (collider.gameObject.CompareTag("Key"))
 		{
-			Instantiate(particlesPrefab, collider.transform.position, Quaternion.identity);
-			audioSrc.pitch = 1;
-			audioSrc.PlayOneShot(collectClip);
+			SpawnParticles(collectParticlesPrefab, collider.transform.position);
+			PlaySoundFixed(collectClip);
 			keys.Add(collider.gameObject);
 			Destroy(collider.gameObject);
 		}
+	}
+
+	private void SpawnParticles(GameObject particles, Vector3 position)
+	{
+		GameObject spawned = Instantiate(particles, position, Quaternion.identity);
+		Destroy(spawned, 2.0f);
 	}
 }

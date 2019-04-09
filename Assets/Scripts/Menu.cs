@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 	public GameObject optionsMenuPrefab;
+	public GameObject creditsMenuPrefab;
+	public GameObject loadingText;
 
 	private GameManager gameManager;
 
@@ -18,12 +20,22 @@ public class Menu : MonoBehaviour
 	public void StartGame()
 	{
 		Time.timeScale = 1;
+		loadingText.SetActive(true);
 		NextLevel();
 	}
 
 	public void Options()
 	{
 		GameObject optionsMenu = Instantiate(optionsMenuPrefab);
+		optionsMenu.GetComponentInChildren<Options>().parentMenu = gameObject;
+		gameObject.SetActive(false);
+	}
+
+	public void Credits()
+	{
+		GameObject creditsMenu = Instantiate(creditsMenuPrefab);
+		creditsMenu.GetComponentInChildren<Options>().parentMenu = gameObject;
+		gameObject.SetActive(false);
 	}
 
 	public void Resume()
@@ -38,6 +50,7 @@ public class Menu : MonoBehaviour
 
 	public void QuitToTitle()
 	{
+		gameManager.ResetTimer();
 		SceneManager.LoadScene(0);
 	}
 

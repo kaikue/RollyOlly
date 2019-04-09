@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Factory1.unity
     guid: c015f692962e76e44800cd48128f840b
   - enabled: 1
+    path: Assets/Scenes/Factory2.unity
+    guid: 4045f2d7b49e7e8438074781e3d6f1af
+  - enabled: 1
+    path: Assets/Scenes/Factory3.unity
+    guid: e004961251121874ba29429d960a3cbe
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 4db8d4d5b963dff40916bf8099e69566
   m_configObjects: {}

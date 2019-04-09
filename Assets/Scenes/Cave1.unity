@@ -272,7 +272,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -907511243
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -16186,7 +16186,7 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -907511243
+  m_SortingLayerID: -1960881273
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -16271,8 +16271,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 11, y: -5, z: 0}
     second:
-      m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileIndex: 14
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -16483,7 +16483,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 9a1597a9f1f78a246b045141e91db915, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: f87668f778f495a44ae1b874a9161576, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3287524f0c333054d985a99f41077a53, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 279c053767cec78408688074985aebff, type: 2}
@@ -16497,6 +16497,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 01006762ff5c6bc4c9a4645138526f12, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: fa88feb6104a43c468f8d4f01ad5dc56, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: df8885981bf2ce540a626e978c985248, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 4
     m_Data: {fileID: 21300000, guid: 5c8e797189c021143b32f52c8c23efc1, type: 3}
@@ -16512,7 +16514,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: b86de725a360674408279ad2fc242f57, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: c07c17725529a27419be9fc28b3e0e23, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 5b97c80c66d5c194a87ac6519df2e521, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 796b826aac16dda41a9f711f1998e01a, type: 3}
@@ -16526,6 +16528,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 32127e630901c8143b9831314aabda6b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: a7daddf865c831c418f30cb6a8b5e88a, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 737ee7f130b5bfa4e9ebf13f988fba66, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 29
     m_Data:
@@ -16717,6 +16721,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6477372970868367772, guid: 94862418403bf964583e2475bd9b3c1d,
+        type: 3}
+      propertyPath: moveParticlesPrefab
+      value: 
+      objectReference: {fileID: 1588994181822924442, guid: deba47e157086ab4192d042e64bc0c04,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94862418403bf964583e2475bd9b3c1d, type: 3}
 --- !u!1001 &1218544031
@@ -16869,6 +16879,7 @@ GameObject:
   - component: {fileID: 1850350768}
   - component: {fileID: 1850350770}
   - component: {fileID: 1850350769}
+  - component: {fileID: 1850350771}
   m_Layer: 0
   m_Name: Bounce Controls Text
   m_TagString: Untagged
@@ -17019,6 +17030,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850350767}
   m_CullTransparentMesh: 0
+--- !u!114 &1850350771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850350767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7956b02760edf14087b92230a345c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamepadText: Hold A to Bounce
+  keyboardText: Hold Space to Bounce
+  text: {fileID: 1850350769}
 --- !u!1 &1910501367
 GameObject:
   m_ObjectHideFlags: 0
@@ -17075,6 +17101,7 @@ GameObject:
   - component: {fileID: 1942014172}
   - component: {fileID: 1942014174}
   - component: {fileID: 1942014173}
+  - component: {fileID: 1942014175}
   m_Layer: 0
   m_Name: Roll Controls Text
   m_TagString: Untagged
@@ -17225,6 +17252,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942014171}
   m_CullTransparentMesh: 0
+--- !u!114 &1942014175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942014171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7956b02760edf14087b92230a345c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamepadText: Use Joystick to Roll
+  keyboardText: Use Arrow Keys to Roll
+  text: {fileID: 1942014173}
 --- !u!1 &2138419760
 GameObject:
   m_ObjectHideFlags: 0

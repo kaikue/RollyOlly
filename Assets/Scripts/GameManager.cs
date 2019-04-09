@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
 	public GameObject levelCompletePrefab;
 
+	[HideInInspector]
+	public bool usingGamepad = false;
+
 	private bool paused = false;
 	private GameObject pauseMenu;
 
@@ -37,7 +40,7 @@ public class GameManager : MonoBehaviour
 		audioSrc = GetComponent<AudioSource>();
 
 	}
-
+	
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
@@ -98,6 +101,15 @@ public class GameManager : MonoBehaviour
 		
 		timerText.text = "Time: " + GetTimeString();
 
+		if (Input.GetKey(KeyCode.JoystickButton0))
+		{
+			usingGamepad = true;
+		}
+		else if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.Mouse0))
+		{
+			usingGamepad = false;
+		}
+
 		if (Input.GetButtonDown("Pause"))
 		{
 			if (paused)
@@ -144,5 +156,10 @@ public class GameManager : MonoBehaviour
 	{
 		Instantiate(levelCompletePrefab);
 		audioSrc.PlayOneShot(completeClip);
+	}
+
+	public void ResetTimer()
+	{
+		gameTime = 0;
 	}
 }

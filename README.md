@@ -4,27 +4,21 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 
 ## Credits
 - Art by [Kenney](https://www.kenney.nl/)
-- Sound effects:
-	- Level complete sound by Higgs01- https://freesound.org/people/Higgs01/sounds/428156/
-- Music:
-	- Bouncy Hamster Dancing by cynicmusic- http://cynicmusic.com http://pixelsphere.org (https://opengameart.org/content/bouncy-hamster-dancing-menu-music)
-	- Other music: Kevin MacLeod (incompetech.com)
-		- Licensed under Creative Commons: By Attribution 3.0 License
-		- http://creativecommons.org/licenses/by/3.0/
+- Music: Kevin MacLeod (incompetech.com)
+	- Licensed under Creative Commons: By Attribution 3.0 License
+	- http://creativecommons.org/licenses/by/3.0/
 - Fonts:
 	- [Sniglet](https://www.fontsquirrel.com/fonts/sniglet)
 	- [Fredoka One](https://fonts.google.com/specimen/Fredoka+One)
+- Level complete sound by Higgs01- https://freesound.org/people/Higgs01/sounds/428156/
 
 ## TODO
 - Important stuff
 	- 2 more factory levels
 		- rotate
 		- hinge
-	- Player hit ground sound & animation
-	- Credits menu?
-	- Test timer & full game run
+	- Build & test full game run
 - Character
-	- Fix occasional double bounce
 	- Conserve momentum (force added = max of jump speed and incoming velocity)
 	- Boost? (propel in direction of rolling)
 	- Ramp off upward slope?
@@ -121,7 +115,6 @@ Game for Jesse Schell's Game Design class. Developed by Kai Kuehner.
 - Save level progress & stars
 	- start menu continue & new game
 - Menus
-	- Make text black
 	- Don't bounce when unpausing??
 	- Level complete menu
 		- Stars collected
